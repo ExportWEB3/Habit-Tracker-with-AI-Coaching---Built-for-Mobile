@@ -16,12 +16,12 @@ export function HomeComponent() {
   }, []);
 
   return (
-    <Div className="mainDiv overflow-hidden relative w-full h-screen bg-black/95 lg-black-screen">
+    <Div className="mainDiv overflow-hidden w-full h-full bg-black/95 lg-black-screen">
       {/* IMAGE SECTION (fades in and out via CSS) */}
       {showImage && (
         <img
           src={backgroundImg}
-          className="w-full h-full animate-fade-in-out absolute top-0 left-0"
+          className="w-full h-full animate-fade-in-out"
           alt="Splash Background"
         />
       )}
