@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Div } from "../../divComponent/div";
-import backgroundImg from "../../images/backgroundimg.png";
+import backgroundImg from "../../images/backgroundimg (2).png";
 
 export function HomeComponent() {
   const [showImage, setShowImage] = useState(true);
