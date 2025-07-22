@@ -1,50 +1,34 @@
 import { useEffect, useState } from "react";
 import { Div } from "../../divComponent/div";
-import backgroundVid from "../../videos/backgroundVid.mp4"
+import backgroundImg from "../../images/backgroundimg.png";
 
 export function HomeComponent() {
-  const [showVideo, setShowVideo] = useState(true);
-  const [fadeOutVideo, setFadeOutVideo] = useState(false);
+  const [showImage, setShowImage] = useState(true);
   const [showNextDiv, setShowNextDiv] = useState(false);
 
-useEffect(() => {
-  const timeout1 = setTimeout(() => {
-    setFadeOutVideo(true);
-  }, 2800); // start fading out just before 3s
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowImage(false);       // hide image
+      setShowNextDiv(true);      // show next content
+    }, 3000); // 3 seconds total
 
-  const timeout2 = setTimeout(() => {
-    setShowVideo(false);
-    setShowNextDiv(true);
-  }, 3000); // fully remove video and show next div
-
-  return () => {
-    clearTimeout(timeout1);
-    clearTimeout(timeout2);
-  };
-}, []);
-
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <Div className="mainDiv overflow-hidden relative w-full h-screen bg-black/95 lg-black-screen">
-      {/* VIDEO SECTION */}
-      {showVideo && (
-        <video
-          autoPlay
-          loop={false}
-          muted
-          playsInline
-          className={`w-screen h-h1000 object-cover absolute top-0 left-0 transition-opacity duration-500 ${
-            fadeOutVideo ? "opacity-0" : "opacity-100"
-          }`}
-        >
-          <source src={backgroundVid} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      {/* IMAGE SECTION (fades in and out via CSS) */}
+      {showImage && (
+        <img
+          src={backgroundImg}
+          className="w-full h-full object-cover animate-fade-in-out absolute top-0 left-0"
+          alt="Splash Background"
+        />
       )}
 
-      {/* NEXT DIV SECTION (Fade in & stay) */}
+      {/* NEXT DIV SECTION (stays) */}
       {showNextDiv && (
-        <Div className="w-full h-full flex flex-col items-center bg-white animate-fade-in">
+        <Div className="w-full h-full flex flex-col items-center justify-center bg-white animate-fade-in">
           <h1 className="text-4xl font-bold">Welcome to Mindmile 🌟</h1>
         </Div>
       )}
