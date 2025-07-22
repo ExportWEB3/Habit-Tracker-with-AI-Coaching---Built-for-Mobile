@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Div } from "../../divComponent/div";
+import backgroundVid from "../../videos/backgroundVid.mp4"
 
 export function HomeComponent() {
   const [showVideo, setShowVideo] = useState(true);
@@ -36,7 +37,7 @@ useEffect(() => {
             fadeOutVideo ? "opacity-0" : "opacity-100"
           }`}
         >
-          <source src="src/videos/backgroundVid.mp4" type="video/mp4" />
+          <source src={backgroundVid} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       )}
