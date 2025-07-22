@@ -21,7 +21,7 @@ export function HomeComponent() {
       {showImage && (
         <img
           src={backgroundImg}
-          className="w-full h-full object-cover animate-fade-in-out absolute top-0 left-0"
+          className="w-full h-full animate-fade-in-out absolute top-0 left-0"
           alt="Splash Background"
         />
       )}
