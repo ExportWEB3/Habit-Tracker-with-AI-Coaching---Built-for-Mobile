@@ -1,0 +1,57 @@
+.pop {
+    width: 100%;
+    height: auto;
+  }
+  
+  .popUpDiv {
+    width: 27%;
+    height: 60px;
+    border-radius: 10px;
+    background-color: rgb(228, 228, 228);
+  }
+  
+  .popUpText {
+    font-size: 16px;
+  }
+  
+@media (max-width: 1000px) {
+    .popUpDiv {
+      max-width: 95vw !important;
+      min-width: 0 !important;
+      height: auto !important;
+      padding: 0 8px !important;
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 8px !important;
+      margin-top: 20px !important;
+      margin-left: 20px !important;
+    }
+    .toastIcon {
+      font-size: 30px !important;
+      min-width: 28px !important;
+      min-height: 28px !important;
+      margin-left: 0 !important;
+      margin-right: 6px !important;
+      display: flex !important;
+      justify-content: center !important;
+    }
+    .popUpText {
+      font-size: 0.95rem !important;
+      margin: 0 !important;
+      flex: 1 1 auto !important;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .mobileG{
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin-left: -7px;
+    }
+    .cursor-pointer.text-2xl.absolute.right-4 {
+      font-size: 25px !important; 
+    }
+  }
+  

@@ -1,0 +1,7 @@
+.button-disabled {
+  background-color: #d1d5db !important; /* Tailwind gray-300 */
+  color: #a1a1aa !important; /* Tailwind gray-400 */
+  cursor: not-allowed !important;
+  border: none !important;
+  opacity: 1 !important;
+}
