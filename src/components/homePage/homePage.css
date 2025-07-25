@@ -32,6 +32,8 @@
     }
     .trackResDiv{
         margin-top: 30px !important;
+        text-align: center;
+        font-size: 30px;
     }
     .animateImgDiv{
         margin-top: -30px !important;
@@ -39,6 +41,6 @@
         height: 300px;
     }
     .startFreeDashRes{
-        margin-left: 60px;
+        margin-left: 75px;
     }
 }
