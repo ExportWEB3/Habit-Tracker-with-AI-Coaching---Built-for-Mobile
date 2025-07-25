@@ -1,13 +1,44 @@
 
 
-@media screen and (min-width: 300px) and (max-width: 800px) {
-    .mainDiv{
+@media screen and (min-width: 300px) and (max-width: 768px) {
+    .container{
+        max-width: 2000px;
+        padding: 0px 30px;
+    }
+    .containerX{
         width: 100%;
-        height: 100%;
-        background-color: black !important;
+        max-width: 2000px;
+        padding: 0px 30px;
+    }
+    .mobileResTopLan{
+        width: 100%;
+        height: 650px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .mobileResTopLanInner{
+        width: 100%;
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        margin-top: -10px;
     }
     .marginBack{
         margin-left: 0.5px;
     }
-    
+    .animateTxtRes{
+        font-size: 30px;
+        line-height: 1;
+    }
+    .trackResDiv{
+        margin-top: 30px !important;
+    }
+    .animateImgDiv{
+        margin-top: -30px !important;
+        width: 150%;
+        height: 300px;
+    }
+    .startFreeDashRes{
+        margin-left: 60px;
+    }
 }

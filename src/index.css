@@ -13,9 +13,9 @@ html, body {
 }
 
 /* container */
-.Container {
+.container {
   max-width: 2000px;
-  padding: 0px 100px;
+  padding: 0px 70px;
 }
   .containerCustom{
     max-width: 100%;

@@ -142,7 +142,17 @@ export interface buttonAttributes {
   onClick?: Function;
 }
 
+export type TypedTextProps = {
+  strings: string[];
+  className?: string;
+};
 
+export type TiltImageProps = {
+  src: string;
+  alt?: string;
+  className?: string;
+  containerClassName?: string;
+};
 
 export interface loginAttributes {
   email: string;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './button.css'
-import { CustomButtonAttributes } from '../../utilities/typedec';
+import { CustomButtonAttributes } from '../utilities/typedec';
 
 
 export function Button (props: CustomButtonAttributes) {
