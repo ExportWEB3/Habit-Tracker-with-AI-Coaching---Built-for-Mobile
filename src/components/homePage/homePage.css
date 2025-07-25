@@ -41,6 +41,7 @@
         height: 300px;
     }
     .startFreeDashRes{
-        margin-left: 69px;
+        align-self: center;
+        margin-top: 30px;
     }
 }
