@@ -83,7 +83,7 @@ const toggleMobileAbout = () => {
 {/* Mobile Hamburger Menu */}
 <Div className="md:hidden relative">
   <button
-    className="text-2xl text-gray-800"
+    className="text-3xl text-gray-800"
     onClick={toggleMobileMenu}
   >
     &#9776;
