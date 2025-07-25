@@ -152,7 +152,7 @@ const toggleMobileAbout = () => {
           <Button 
           type="button"
           btnText="Start Free Trial"
-          className="w-44 h-12 bg-blue-800 hover:bg-blue-700 text-white font-medium font3 startFreeDashRes"
+          className="w-44 h-12 bg-blue-800 hover:bg-white text-white hover:text-black font-medium font3 startFreeDashRes border hover:border-black/90 transition-colors duration-200"
           >start</Button>
         </Div>
 
