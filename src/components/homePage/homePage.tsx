@@ -84,6 +84,7 @@ const toggleMobileAbout = () => {
         type="button"
         btnText="Sign Up"
         className="w-22 font-medium rounded-lg text-white transition-colors duration-200 hover:text-black h-full bg-blue-800 hover:bg-white border hover:border-black/90 backdrop-blur-sm"
+        onClick={() => navigate("/getstarted")}
       >
         Signup
       </Button>
@@ -126,6 +127,7 @@ const toggleMobileAbout = () => {
         type="button"
         btnText="Sign Up"
         className="w-full mb-4 font-medium rounded-lg text-white transition-colors duration-200 hover:text-black h-10 bg-blue-800 hover:bg-white border hover:border-black/90"
+        onClick={() => navigate("/getstarted")}
       >
         Sign Up
       </Button>
@@ -239,6 +241,7 @@ const toggleMobileAbout = () => {
         <Button 
         type="button"
         btnText="Try it Free"
+        onClick={() => navigate("/getstarted")}
         className="w-44 h-12 bg-blue-800 text-white mt-10 border rounded-lg hover:border-black/90 hover:bg-white hover:text-black transition-colors duration-200"
         >
           Start
