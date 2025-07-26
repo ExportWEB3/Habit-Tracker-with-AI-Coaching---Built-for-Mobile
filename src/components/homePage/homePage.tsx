@@ -208,7 +208,7 @@ const toggleMobileAbout = () => {
       </Div>
 
 <Div className="w-full h-[300px] animateImgDivMain container flex">
-      <Div className="w-1/2 h-full py-10">
+      <Div className="w-1/2 h-full py-10 animateImgDivMaininner">
         <h1 className="text-4xl font-medium">Build Better Habits Effortlessly</h1>
         <p className=" text-base mt-5">Mindmile uses AI to help you stay focused,organized,</p>
         <p className="text-base"> and one step ahead every single day.</p>
@@ -220,7 +220,7 @@ const toggleMobileAbout = () => {
           Start
         </Button>
       </Div>
-<Div className="w-1/2 h-full flex items-center justify-center mt-10">
+<Div className="w-1/2 h-full flex items-center justify-center mt-10 animateImgDivMaininner2">
   <img
     src={astroImg}
     alt="Astro Bot"
@@ -230,15 +230,50 @@ const toggleMobileAbout = () => {
 </Div>
 
 
-<Div className="w-full h-[400px] bg-white mt-10 flex flex-col container gap-2">
-  <p></p>
-  <Div className="w-full h-[80%] bg-black">
-      <Div className="w-[25%] h-full bg-white">
-
+<Div className="w-full h-[370px] mt-10 flex flex-col container whatsDivRes">
+  <p className="text-2xl font-medium">Whats Quietly Slowing you down?</p>
+  <Div className="w-full h-[90%] gap-2 flex whatsDivInner">
+      <Div className="w-[25%] h-full bg-slate-50 mt-7 flex flex-col justify-between p-4 rounded-lg shadowDo hover:scale-[1.03] transition-transform duration-300 cursor-pointer whatsDivInnerDiv">
+        <div className="w-full h-12">
+          <p className="text-2xl">01/</p>
+        </div>
+        <div className="w-full h-40">
+          <p className="text-2xl font-medium">Too much Noise, Not Enough Focus</p>
+          <p className="tracking-tighter mt-3">Your day's packed but are you making real progress? Mindmile clers the fog and sharpens your focus</p>
+        </div>
+  </Div>
+        <Div className="w-[25%] h-full bg-slate-50 mt-7 flex flex-col justify-between p-4 rounded-lg shadowDo hover:scale-[1.03] transition-transform duration-300 cursor-pointer whatsDivInnerDiv">
+        <div className="w-full h-12">
+          <p className="text-2xl">02/</p>
+        </div>
+        <div className="w-full h-40">
+          <p className="text-2xl font-medium">You plan... But don't follow through</p>
+          <p className="tracking-tighter mt-3">We get it. Motivation fades. Our AI coach keeps you on track, adjusting to your energy and mood.</p>
+        </div>
+  </Div>
+        <Div className="w-[25%] h-full bg-slate-50 mt-7 flex flex-col justify-between p-4 rounded-lg shadowDo hover:scale-[1.03] transition-transform duration-300 cursor-pointer whatsDivInnerDiv">
+        <div className="w-full h-12">
+          <p className="text-2xl">03/</p>
+        </div>
+        <div className="w-full h-40">
+          <p className="text-2xl font-medium">Routine Chaos, Zero Consistency</p>
+          <p className="tracking-tighter mt-3">You’re trying habits, journals, planners — yet nothing sticks. MindMile makes it all feel natural again.</p>
+        </div>
+  </Div>
+        <Div className="w-[25%] h-full bg-slate-50 mt-7 flex flex-col justify-between p-4 rounded-lg shadowDo hover:scale-[1.03] transition-transform duration-300 cursor-pointer whatsDivInnerDiv">
+        <div className="w-full h-12">
+          <p className="text-2xl">04/</p>
+        </div>
+        <div className="w-full h-40">
+          <p className="text-2xl font-medium">Burned Out Before You Begin</p>
+          <p className="tracking-tighter mt-3">Overthinking the plan can kill the momentum. Let AI do the thinking — you just show up and win.</p>
+        </div>
   </Div>
   </Div>
 </Div>
 
+
+<Div className="w-full h-50 bg-black mt-20"></Div>
 
 
 
