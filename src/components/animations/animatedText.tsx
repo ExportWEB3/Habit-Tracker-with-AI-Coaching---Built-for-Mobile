@@ -13,9 +13,9 @@ export function TypedText({ strings, className = "" }: TypedTextProps) {
     if (el.current) {
       typed.current = new Typed(el.current, {
         strings,
-        typeSpeed: 60,
-        backSpeed: 55,
-        backDelay: 1000,
+        typeSpeed: 30,
+        backSpeed: 35,
+        backDelay: 1500,
         loop: true,
         showCursor: true,
         cursorChar: "|",

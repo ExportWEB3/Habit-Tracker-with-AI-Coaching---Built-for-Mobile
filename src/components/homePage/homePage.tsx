@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Div } from "../../divComponent/div";
-import backgroundImg from "../../images/backgroundimg (2).png";
 import { Button } from "../../Button/button";
 import { TypedText } from "../animations/animatedText";
 import { TiltImage } from "../animations/titlimageHover";
 import './homePage.css'
+import desktopImg from "../../images/Desktop.png"
+import { Icon } from "../../Icon.component/Icon";
 
 export function HomeComponent() {
   const [showImage, setShowImage] = useState(true);
@@ -140,14 +141,14 @@ const toggleMobileAbout = () => {
 
       </Div>
 <hr />
-      <Div className="w-full h-h650 container bg-white flex items-center mobileResTopLan">
+      <Div className="w-full h-[550px] container bg-white overflow-hidden flex items-center mobileResTopLan">
         <Div className="w-w130 h-h450 flex flex-col mobileResTopLanInner">
           <TypedText
             strings={["Plan Better.", "Habit Smarter."]}
             className="bg-white mt-10 text-6xl animateTxtRes"
           />
           <Div className="w-full h-28 mt-7 trackResDiv">
-            <p className="text-xl tracking-tight">Track your Progress and achieve your goals with personalized daily habit plans and an AI-Powered coach</p>
+            <p className="text-xl tracking-tight trackResTxt">Track your <a className="extended">Progress</a> and achieve your goals with personalized daily habit plans and an <a className="extended">AI-Powered</a> coach</p>
           </Div>
           <Button 
           type="button"
@@ -156,15 +157,62 @@ const toggleMobileAbout = () => {
           >start</Button>
         </Div>
 
-            <Div className="flex justify-center mt-10 animateImgDiv containerX">
-      <TiltImage
-        src="https://i0.wp.com/mindeasy.com/wp-content/uploads/2021/10/Header--1024x536.jpg"
-        alt="Cool 3D Tilt"
-        containerClassName="rounded-xl animateImgDiv"
-        className="brightness-90"
-      />
-    </Div>
+        <Div className="w-[550px] h-[450px] freeTopDivRes bg-slate-50 ml-20 flex flex-col p-5 ring ring-black/30 rounded-md">
+          <Div className="w-full h-28 flex flex-col">
+            <h1 className="text-[45px] tracking-tighter freeTopDivTxt">FREE YOUR</h1>
+            <h1 className="text-[45px] tracking-tighter -mt-3 freeTopDivTxt">FULL POTENTIAL</h1>
+          </Div>
+
+          <Div className="w-full h-[280px] mt-5 flex flex-col gap-2">
+            <Div className="w-full h-12 flex items-center gap-5">
+              <Icon
+              icon="ri-check-fill"
+              className="text-2xl font-semibold text-blue-600"
+               />
+               <p>Track tasks and habits</p>
+            </Div>
+            <Div className="w-full h-12 flex items-center gap-5">
+              <Icon
+              icon="ri-check-fill"
+              className="text-2xl font-semibold text-blue-600"
+               />
+               <p>Automatic schedules</p>
+            </Div>
+            <Div className="w-full h-12  flex items-center gap-5">
+              <Icon
+              icon="ri-check-fill"
+              className="text-2xl font-semibold text-blue-600"
+               />
+               <p>Personalized Recommendation</p>
+            </Div>           
+            <Div className="w-full h-12 flex items-center gap-5">
+              <Icon
+              icon="ri-check-fill"
+              className="text-2xl font-semibold text-blue-600"
+               />
+               <p>Weekly Reviews</p>
+            </Div> 
+            <h1 className="self-center text-4xl font-semibold">3-DAY FREE TRIAL</h1>         
+          </Div>
+        </Div>
+
+
       </Div>
+
+<Div className="w-full h-[600px] animateImgDivMain flex justify-center items-center">
+  <Div className="relative w-[90%] h-full rounded-xl overflow-hidden">
+    <Div className="w-full h-full flex items-center justify-center bg-black/20 text-black text-center">
+      <Div>
+        <h1 className="text-3xl font-bold">Welcome to MindEasy</h1>
+        <p className="mt-2 text-base">Explore a new way to train your mind.</p>
+      </Div>
+    </Div>
+  </Div>
+</Div>
+
+
+
+
  
     </Div>
   );

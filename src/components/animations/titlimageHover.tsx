@@ -34,7 +34,7 @@ export function TiltImage({
 
   return (
     <div
-      className={`w-[700px] h-[450px] ${containerClassName} `}
+      className={`w-full h-full ${containerClassName} `}
       style={{ perspective: "1000px" }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
