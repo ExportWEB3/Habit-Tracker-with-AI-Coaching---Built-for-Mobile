@@ -2,23 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Div } from "../../divComponent/div";
 import { Button } from "../../Button/button";
 import { TypedText } from "../animations/animatedText";
-import { TiltImage } from "../animations/titlimageHover";
 import './homePage.css'
-import desktopImg from "../../images/Desktop.png"
 import { Icon } from "../../Icon.component/Icon";
 import astroImg from "../../images/Astro_Bot.webp"
-import scaleImg1 from "../../images/OpenAI_Logo.png"
-import scaleImg2 from "../../images/relax.png"
-import scaleImg3 from "../../images/neurofit.png"
-import scaleImg4 from "../../images/appsumo.png"
-import scaleImg5 from "../../images/productHunt.avif"
-import scaleImg6 from "../../images/othership.png"
+import { useNavigate } from "react-router-dom";
 
 
 export function HomeComponent() {
 const [openDropdown, setOpenDropdown] = useState<"About" | null>(null);
 const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+const navigate = useNavigate();
 
 const toggleDropdown = (section: "About" | null) => {
   setOpenDropdown(openDropdown === section ? null : section);
@@ -41,7 +35,7 @@ const toggleMobileAbout = () => {
 <Div className="w-full h-20 flex items-center px-4 md:px-10 fixed top-0 left-0 z-50 bg-white shadow-md">
   {/* Left: Logo */}
   <Div className="w-1/2 h-full flex items-center">
-    <Div className="w-12 h-12 ring-2 ring-black/60 rounded-lg"></Div>
+    <Div className="w-12 h-12 ring-2 ring-black/60 rounded-lg" />
     <p className="font3 ml-4 text-xl font-medium">Mindmile</p>
   </Div>
 
@@ -191,6 +185,7 @@ const toggleMobileAbout = () => {
           type="button"
           btnText="Start Free Trial"
           className="w-44 h-12 bg-blue-800 hover:bg-white text-white hover:text-black font-medium font3 startFreeDashRes border rounded-lg hover:border-black/90 transition-colors duration-200"
+          onClick={() => navigate("/getstarted")}
           >start</Button>
         </Div>
 
@@ -302,12 +297,8 @@ const toggleMobileAbout = () => {
 </Div>
 
 
-<Div className="w-full h-50 bg-black mt-20"></Div>
+<Div className="w-full h-50 mt-20"></Div>
 
-
-
-
- 
     </Div>
   );
 }

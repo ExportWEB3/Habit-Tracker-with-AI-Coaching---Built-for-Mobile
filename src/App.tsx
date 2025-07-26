@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/homePage";
+import GetStartedPage from "./pages/getStarted";
+import SignUpPage from "./pages/signUp";
 
 
 
@@ -12,6 +14,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/getstarted" element={<GetStartedPage/>} />
+        <Route path="/signup" element={<SignUpPage/>} />
       </Routes>
     </BrowserRouter>
   );
