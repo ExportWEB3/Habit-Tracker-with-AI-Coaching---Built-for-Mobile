@@ -262,7 +262,7 @@ const toggleMobileAbout = () => {
 <Div className="w-full h-[370px] mt-10 flex flex-col container whatsDivRes">
   <p className="text-2xl font-medium">Whats Quietly Slowing you down?</p>
   <Div className="w-full h-[90%] gap-2 flex whatsDivInner">
-      <Div className="w-[25%] h-full bg-slate-50 mt-7 flex flex-col justify-between p-4 rounded-lg shadowDo hover:scale-[1.03] transition-transform duration-300 cursor-pointer whatsDivInnerDiv">
+      <Div className="w-[25%] h-full bg-slate-50 mt-7 flex flex-col justify-between p-4 rounded-lg shadowDo hover:scale-[1.03] transition-transform duration-300 cursor-pointer whatsDivInnerDiv border-2 hover:border-purple-600">
         <div className="w-full h-12">
           <p className="text-2xl">01/</p>
         </div>
@@ -271,7 +271,7 @@ const toggleMobileAbout = () => {
           <p className="tracking-tighter mt-3">Your day's packed but are you making real progress? Mindmile clers the fog and sharpens your focus</p>
         </div>
   </Div>
-        <Div className="w-[25%] h-full bg-slate-50 mt-7 flex flex-col justify-between p-4 rounded-lg shadowDo hover:scale-[1.03] transition-transform duration-300 cursor-pointer whatsDivInnerDiv">
+        <Div className="w-[25%] h-full bg-slate-50 mt-7 flex flex-col justify-between p-4 rounded-lg shadowDo hover:scale-[1.03] transition-transform duration-300 cursor-pointer whatsDivInnerDiv border-2 hover:border-blue-600">
         <div className="w-full h-12">
           <p className="text-2xl">02/</p>
         </div>
@@ -280,7 +280,7 @@ const toggleMobileAbout = () => {
           <p className="tracking-tighter mt-3">We get it. Motivation fades. Our AI coach keeps you on track, adjusting to your energy and mood.</p>
         </div>
   </Div>
-        <Div className="w-[25%] h-full bg-slate-50 mt-7 flex flex-col justify-between p-4 rounded-lg shadowDo hover:scale-[1.03] transition-transform duration-300 cursor-pointer whatsDivInnerDiv">
+        <Div className="w-[25%] h-full bg-slate-50 mt-7 flex flex-col justify-between p-4 rounded-lg shadowDo hover:scale-[1.03] transition-transform duration-300 cursor-pointer whatsDivInnerDiv border-2 hover:border-yellow-600">
         <div className="w-full h-12">
           <p className="text-2xl">03/</p>
         </div>
@@ -289,7 +289,7 @@ const toggleMobileAbout = () => {
           <p className="tracking-tighter mt-3">You’re trying habits, journals, planners — yet nothing sticks. MindMile makes it all feel natural again.</p>
         </div>
   </Div>
-        <Div className="w-[25%] h-full bg-slate-50 mt-7 flex flex-col justify-between p-4 rounded-lg shadowDo hover:scale-[1.03] transition-transform duration-300 cursor-pointer whatsDivInnerDiv">
+        <Div className="w-[25%] h-full bg-slate-50 mt-7 flex flex-col justify-between p-4 rounded-lg shadowDo hover:scale-[1.03] transition-transform duration-300 cursor-pointer whatsDivInnerDiv border-2 hover:border-teal-600">
         <div className="w-full h-12">
           <p className="text-2xl">04/</p>
         </div>
