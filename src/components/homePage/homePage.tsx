@@ -16,19 +16,18 @@ import scaleImg6 from "../../images/othership.png"
 
 
 export function HomeComponent() {
-  const [showImage, setShowImage] = useState(true);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const [openDropdown, setOpenDropdown] = useState<"About" | null>(null);
+const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = React.useState<string | null>(null)
 
-    const toggleDropdown = (dropdown: string) => {
-        setOpenDropdown((prev) => (prev === dropdown ? null : dropdown));
-    }
+const toggleDropdown = (section: "About" | null) => {
+  setOpenDropdown(openDropdown === section ? null : section);
+};
 
-    // Hamburger toggle
+
 const toggleMobileMenu = () => {
-  setIsMobileMenuOpen((prev) => !prev);
-  setMobileAboutOpen(false); // close About submenu if closing main menu
+  if (isMobileMenuOpen) setMobileAboutOpen(false); // close nested dropdown
+  setIsMobileMenuOpen(!isMobileMenuOpen);
 };
 
 // About inside mobile menu
@@ -39,7 +38,7 @@ const toggleMobileAbout = () => {
 
   return (
     <Div className="mainDiv overflow-hidden w-full h-full bg-white container overflow-y-auto">
-<Div className="w-full h-20 flex items-center px-4 md:px-10">
+<Div className="w-full h-20 flex items-center px-4 md:px-10 fixed top-0 left-0 z-50 bg-white shadow-md">
   {/* Left: Logo */}
   <Div className="w-1/2 h-full flex items-center">
     <Div className="w-12 h-12 ring-2 ring-black/60 rounded-lg"></Div>
@@ -48,7 +47,6 @@ const toggleMobileAbout = () => {
 
   {/* Right Section */}
   <Div className="w-1/2 h-full flex justify-end items-center relative">
-    
     {/* Desktop Navigation */}
     <Div className="hidden md:flex w-fit h-1/2 absolute right-0 items-center">
       <div className="relative mr-5">
@@ -57,12 +55,16 @@ const toggleMobileAbout = () => {
           onClick={() => toggleDropdown('About')}
         >
           <h1
-            className={`text-base font-medium hover:text-blue-800 ${openDropdown === 'About' ? 'text-blue-800' : 'text-gray-800'}`}
+            className={`text-base font-medium hover:text-blue-800 ${
+              openDropdown === 'About' ? 'text-blue-800' : 'text-gray-800'
+            }`}
           >
             About
           </h1>
           <svg
-            className={`w-4 h-4 ml-1 transform transition-transform ${openDropdown === 'About' ? 'rotate-180' : 'rotate-0'}`}
+            className={`w-4 h-4 ml-1 transform transition-transform ${
+              openDropdown === 'About' ? 'rotate-180' : 'rotate-0'
+            }`}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -72,7 +74,9 @@ const toggleMobileAbout = () => {
           </svg>
         </div>
         <div
-          className={`absolute top-10 -left-20 w-72 bg-white border rounded shadow-lg transition-all duration-300 ease-in-out ${openDropdown === 'About' ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0'} overflow-hidden`}
+          className={`absolute top-10 -left-20 w-72 bg-white border rounded shadow-lg transition-all duration-300 ease-in-out ${
+            openDropdown === 'About' ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0'
+          } overflow-hidden`}
         >
           <ul>
             <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Blog</li>
@@ -86,70 +90,95 @@ const toggleMobileAbout = () => {
         type="button"
         btnText="Sign Up"
         className="w-22 font-medium rounded-lg text-white transition-colors duration-200 hover:text-black h-full bg-blue-800 hover:bg-white border hover:border-black/90 backdrop-blur-sm"
-      >Signup</Button>
+      >
+        Signup
+      </Button>
     </Div>
-
-{/* Mobile Hamburger Menu */}
-<Div className="md:hidden relative">
+<Div className="md:hidden relative z-50">
   <button
-    className="text-3xl text-gray-800"
+    className="w-10 h-10 flex flex-col items-center justify-center space-y-[7px] group"
     onClick={toggleMobileMenu}
   >
-    &#9776;
+    <span
+      className={`w-8 h-[2px] bg-black rounded transition-transform duration-300 ease-in-out ${
+        isMobileMenuOpen ? 'rotate-45 translate-y-[9px]' : ''
+      }`}
+    ></span>
+    <span
+      className={`w-5 h-[2px] bg-black rounded transition-opacity duration-300 ease-in-out ${
+        isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
+      }`}
+    ></span>
+    <span
+      className={`w-8 h-[2px] bg-black rounded transition-transform duration-300 ease-in-out ${
+        isMobileMenuOpen ? '-rotate-45 -translate-y-[9px]' : ''
+      }`}
+    ></span>
   </button>
-
-  <div
-    className={`absolute top-12 right-0 w-48 bg-white border rounded shadow-md transition-all duration-300 ease-in-out z-50 ${
-      isMobileMenuOpen ? 'opacity-100 max-h-96 py-4 px-4' : 'opacity-0 max-h-0 overflow-hidden'
-    }`}
-  >
-    <p className="text-base font-semibold mb-3 cursor-pointer hover:text-gray-700">Login</p>
-
-    <Button
-      type="button"
-      btnText="Sign Up"
-      className="w-full mb-3 font-medium rounded-lg text-white transition-colors duration-200 hover:text-black h-10 bg-blue-800 hover:bg-white border hover:border-black/90"
-    >signUp</Button>
-
-    {/* About toggle */}
-    <div className="relative">
-      <div
-        className="flex items-center cursor-pointer"
-        onClick={toggleMobileAbout}
-      >
-        <h1 className={`text-base font-medium hover:text-blue-800 ${mobileAboutOpen ? 'text-blue-800' : 'text-gray-800'}`}>
-          About
-        </h1>
-        <svg
-          className={`w-4 h-4 ml-1 transform transition-transform ${mobileAboutOpen ? 'rotate-180' : 'rotate-0'}`}
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </div>
-      <div
-        className={`mt-2 ml-3 transition-all duration-300 ease-in-out ${
-          mobileAboutOpen ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0'
-        } overflow-hidden`}
-      >
-        <ul>
-          <li className="py-1 cursor-pointer hover:text-gray-600">Blog</li>
-          <li className="py-1 cursor-pointer hover:text-gray-600">Guides</li>
-          <li className="py-1 cursor-pointer hover:text-gray-600">Webinars</li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </Div>
+
 
   </Div>
 
-      </Div>
+  {/* Fullscreen Mobile Dropdown */}
+  <div
+    className={`fixed top-0 left-0 w-full h-screen bg-white transition-all duration-300 ease-in-out z-40 ${
+      isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+    }`}
+  >
+    <Div className="p-6 pt-24 flex flex-col">
+      <p className="text-base font-semibold mb-4 cursor-pointer hover:text-gray-700">Login</p>
+      <Button
+        type="button"
+        btnText="Sign Up"
+        className="w-full mb-4 font-medium rounded-lg text-white transition-colors duration-200 hover:text-black h-10 bg-blue-800 hover:bg-white border hover:border-black/90"
+      >
+        Sign Up
+      </Button>
+
+      {/* About toggle */}
+      <div className="relative">
+        <div
+          className="flex items-center cursor-pointer"
+          onClick={toggleMobileAbout}
+        >
+          <h1
+            className={`text-base font-medium hover:text-blue-800 ${
+              mobileAboutOpen ? 'text-blue-800' : 'text-gray-800'
+            }`}
+          >
+            About
+          </h1>
+          <svg
+            className={`w-4 h-4 ml-1 transform transition-transform ${
+              mobileAboutOpen ? 'rotate-180' : 'rotate-0'
+            }`}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+        <div
+          className={`mt-2 ml-2 transition-all duration-300 ease-in-out ${
+            mobileAboutOpen ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0'
+          } overflow-hidden`}
+        >
+          <ul>
+            <li className="py-1 cursor-pointer hover:text-gray-600">Blog</li>
+            <li className="py-1 cursor-pointer hover:text-gray-600">Guides</li>
+            <li className="py-1 cursor-pointer hover:text-gray-600">Webinars</li>
+          </ul>
+        </div>
+      </div>
+    </Div>
+  </div>
+</Div>
+
 <hr />
-      <Div className="w-full h-[550px] container bg-white overflow-hidden flex items-center mobileResTopLan">
+      <Div className="w-full h-[550px] mt-24 container bg-white overflow-hidden flex items-center mobileResTopLan">
         <Div className="w-w130 h-h450 flex flex-col mobileResTopLanInner">
           <TypedText
             strings={["Plan Better.", "Habit Smarter."]}
@@ -161,7 +190,7 @@ const toggleMobileAbout = () => {
           <Button 
           type="button"
           btnText="Start Free Trial"
-          className="w-44 h-12 bg-blue-800 hover:bg-white text-white hover:text-black font-medium font3 startFreeDashRes border hover:border-black/90 transition-colors duration-200"
+          className="w-44 h-12 bg-blue-800 hover:bg-white text-white hover:text-black font-medium font3 startFreeDashRes border rounded-lg hover:border-black/90 transition-colors duration-200"
           >start</Button>
         </Div>
 
@@ -215,7 +244,7 @@ const toggleMobileAbout = () => {
         <Button 
         type="button"
         btnText="Try it Free"
-        className="w-44 h-12 bg-blue-800 text-white mt-10 border hover:border-black/90 hover:bg-white hover:text-black transition-colors duration-200"
+        className="w-44 h-12 bg-blue-800 text-white mt-10 border rounded-lg hover:border-black/90 hover:bg-white hover:text-black transition-colors duration-200"
         >
           Start
         </Button>
