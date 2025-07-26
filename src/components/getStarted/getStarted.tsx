@@ -240,13 +240,14 @@ return (
         {step === 3 && (
           <>
             <h2 className="text-xl font-semibold mb-4">
-              What’s your biggest productivity challenge?
+              How do you want your AI to coach you?
             </h2>
             {[
-              "Too many meetings",
-              "Not enough focus time",
-              "Hard to prioritize tasks",
-              "Disorganized team workflow",
+             "Gentle & Encouraging",
+             "Motivational & Tough Love",
+             "Data-Driven & Analytical",
+             "Spiritual & Reflective",
+             "Flexible & Chill",
             ].map((option) => optionBox("challenge", option))}
           </>
         )}
