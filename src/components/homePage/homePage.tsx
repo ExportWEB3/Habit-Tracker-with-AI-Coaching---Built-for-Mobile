@@ -6,6 +6,14 @@ import { TiltImage } from "../animations/titlimageHover";
 import './homePage.css'
 import desktopImg from "../../images/Desktop.png"
 import { Icon } from "../../Icon.component/Icon";
+import astroImg from "../../images/Astro_Bot.webp"
+import scaleImg1 from "../../images/OpenAI_Logo.png"
+import scaleImg2 from "../../images/relax.png"
+import scaleImg3 from "../../images/neurofit.png"
+import scaleImg4 from "../../images/appsumo.png"
+import scaleImg5 from "../../images/productHunt.avif"
+import scaleImg6 from "../../images/othership.png"
+
 
 export function HomeComponent() {
   const [showImage, setShowImage] = useState(true);
@@ -199,16 +207,38 @@ const toggleMobileAbout = () => {
 
       </Div>
 
-<Div className="w-full h-[600px] animateImgDivMain flex justify-center items-center">
-  <Div className="relative w-[90%] h-full rounded-xl overflow-hidden">
-    <Div className="w-full h-full flex items-center justify-center bg-black/20 text-black text-center">
-      <Div>
-        <h1 className="text-3xl font-bold">Welcome to MindEasy</h1>
-        <p className="mt-2 text-base">Explore a new way to train your mind.</p>
+<Div className="w-full h-[300px] animateImgDivMain container flex">
+      <Div className="w-1/2 h-full py-10">
+        <h1 className="text-4xl font-medium">Build Better Habits Effortlessly</h1>
+        <p className=" text-base mt-5">Mindmile uses AI to help you stay focused,organized,</p>
+        <p className="text-base"> and one step ahead every single day.</p>
+        <Button 
+        type="button"
+        btnText="Try it Free"
+        className="w-44 h-12 bg-blue-800 text-white mt-10 border hover:border-black/90 hover:bg-white hover:text-black transition-colors duration-200"
+        >
+          Start
+        </Button>
       </Div>
-    </Div>
+<Div className="w-1/2 h-full flex items-center justify-center mt-10">
+  <img
+    src={astroImg}
+    alt="Astro Bot"
+    className="w-[300px] animate-float hover:rotate-[-10deg] transition-transform duration-500"
+  />
+</Div>
+</Div>
+
+
+<Div className="w-full h-[400px] bg-white mt-10 flex flex-col container gap-2">
+  <p></p>
+  <Div className="w-full h-[80%] bg-black">
+      <Div className="w-[25%] h-full bg-white">
+
+  </Div>
   </Div>
 </Div>
+
 
 
 

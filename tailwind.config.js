@@ -62,6 +62,8 @@ export default {
       },
       animation: {
         'ping-custom': 'ping-custom 2s ease-out infinite',
+        float: 'float 3s ease-in-out infinite',
+    marquee: 'marquee 300s linear infinite',
       },
       keyframes: {
         'ping-custom': {
@@ -69,6 +71,18 @@ export default {
           '70%': { transform: 'scale(1.8)', opacity: '0' },
           '100%': { transform: 'scale(2)', opacity: '0' },
         },
+          float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-25px)' },
+        },
+                scrollX: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+            marquee: {
+      '0%': { transform: 'translateX(0%)' },
+      '100%': { transform: 'translateX(-100%)' },
+    },
       },
     },
   },
