@@ -105,7 +105,7 @@ const optionBox = (stepKey: string, option: string) => {
 
 
   return (
-    <Div className="min-h-screen w-full flex justify-center items-center bg-gradient-to-tr from-blue-200 to-pink-200">
+<Div className="fixed inset-0 z-50 flex justify-center items-center backdrop-blur bg-black/10">
         
 <Div className="w-[90%] h-[600px] sm:w-[450px] bg-gradient-to-b from-blue-100 to-white rounded-xl p-6 transition-all duration-300 relative">
             {/* Close (X) Button */}
@@ -212,7 +212,7 @@ return (
       <Div className="mt-6 flex justify-between">
           <button
     onClick={handleBack}
-    className={`px-4 py-2 bg-gray-300 text-gray-800 rounded transition-opacity duration-200 ${
+    className={`px-4 py-2 bg-blue-100 text-blue-800 font-medium rounded transition-opacity duration-200 ${
       step > 1 ? "opacity-100" : "opacity-0 pointer-events-none"
     }`}
   >
@@ -267,7 +267,7 @@ return (
               onClick={() => setCustomOpen((prev) => !prev)}
               className="p-3 border border-gray-300 rounded cursor-pointer hover:bg-gray-100 transition-colors mb-3"
             >
-              Add custom response
+              Others
             </Div>
 
             <Div
@@ -289,7 +289,7 @@ return (
   {/* Back button */}
   <button
     onClick={handleBack}
-    className={`px-4 py-2 bg-gray-300 text-gray-800 rounded transition-opacity duration-200 ${
+    className={`px-4 py-2 bg-blue-100 text-blue-800 rounded font-medium transition-opacity duration-200 ${
       step > 2 ? "opacity-100" : "opacity-0 pointer-events-none"
     }`}
   >

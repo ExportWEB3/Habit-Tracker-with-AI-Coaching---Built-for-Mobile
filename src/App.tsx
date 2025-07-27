@@ -12,9 +12,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<HomePage />} />
-        <Route path="/getstarted" element={<GetStartedPage/>} />
+        <Route path="/getstarted" element={
+    <>
+      <HomePage /> {/* This renders the background */}
+      <GetStartedPage /> {/* This overlays the modal */}
+    </>
+  } />
         <Route path="/signup" element={<SignUpPage/>} />
       </Routes>
     </BrowserRouter>

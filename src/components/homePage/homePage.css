@@ -52,10 +52,11 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
         font-weight: 500;
     }
     .extended{
-         background: linear-gradient(to right, #bd81c1, #e52e71);
+         background: rgb(33, 33, 147);
          background-clip: content-box;
         -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-size: 38px;
     }
     .animateImgDiv{
         margin-top: 0px !important;
