@@ -1,4 +1,4 @@
-import { inputAttributes } from "../../utilities/typedec";
+import { inputAttributes } from "../utilities/typedec";
 
 export function Input(props: inputAttributes) {
   const {

@@ -1,0 +1,30 @@
+@media screen and (min-width:300px) and (max-width:768px) {
+    .containerOr{
+        max-width: 2000px;
+        padding: 0px 20px;
+        width: 100%;
+    }
+    .signImgRes{
+        display: none !important;
+    }
+    .signUpDivRes{
+        width: 100%;
+    }
+    .signUpInputRes{
+        width: 100%;
+    }
+    .signUpInputResSec{
+        width: 100%;
+        height: 80px;
+    }
+    .signUpInputResSecInner{
+        height: 50%;
+    }
+    .signUpInputResSecInnerX{
+        width: 50%;
+        font-size: 13px;
+    }
+    .signUpInputResSecInnerXr{
+        display: none;
+    }
+}

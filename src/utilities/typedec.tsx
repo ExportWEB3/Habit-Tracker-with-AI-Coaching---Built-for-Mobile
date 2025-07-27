@@ -11,7 +11,6 @@ export interface initialStateAttributes {
   isLoading: boolean
 }
 
-
 export interface productsAttrubutes {
   productName: string;
   description: string;
