@@ -220,7 +220,7 @@ return (
   </button>
  <button
            onClick={() => {
-            setAnswers((prev) => ({ ...prev, UserOnboard: step2Selections }));
+            setAnswers((prev) => ({ ...prev, UserOnboard2: step2Selections }));
             setStep(3);
           }}
 
@@ -248,7 +248,7 @@ return (
              "Data-Driven & Analytical",
              "Spiritual & Reflective",
              "Flexible & Chill",
-            ].map((option) => optionBox("challenge", option))}
+            ].map((option) => optionBox("AI-Coach-3", option))}
           </>
         )}
 
@@ -262,7 +262,7 @@ return (
                "Focus & Attention",
                "Energy & Motivation",
                 "Sleep & Recovery",
-            ].map((option) => optionBox("challenge", option))}
+            ].map((option) => optionBox("Improvement-4", option))}
             <Div
               onClick={() => setCustomOpen((prev) => !prev)}
               className="p-3 border border-gray-300 rounded cursor-pointer hover:bg-gray-100 transition-colors mb-3"
