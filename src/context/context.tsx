@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
-import type { globalUseContextStateAttributes, initialStateAttributes, layoutAttributes } from "../utilities/typedec";
-import Reducer from "./reducer";
 
+import Reducer from "./reducer";
+import { globalUseContextStateAttributes, initialStateAttributes, layoutAttributes } from "../utilities/typedec";
 
 const intialState: initialStateAttributes = {
   user: null,

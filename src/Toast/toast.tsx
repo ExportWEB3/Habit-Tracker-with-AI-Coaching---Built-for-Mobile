@@ -1,32 +1,65 @@
 import { useContext, useEffect, useState } from "react";
 import "./toast.css";
-import { GlobalUseContext } from "../context/context";
 import { Icon } from "../Icon.component/Icon";
+import { GlobalUseContext } from "../context/context";
 
 export function ToastComponent() {
   const { state, dispatch } = useContext(GlobalUseContext);
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    if (state?.isToastState?.notificationState) {
-      setIsVisible(true);
-      setTimeout(() => {
-        setIsVisible(false); 
-        setTimeout(() => {
-          dispatch({ type: "CLEAR_TOAST", payload: { notificationState: false, notificationText: "", icon: "", iconClassName: "", backgroundColor: "" } });
-        }, 500); // Delay dispatch to allow transition
-      }, 3000);
-    }
-  }, [state?.isToastState]);
+useEffect(() => {
+  const toast = state?.isToastState;
 
-  const handleClose = () => {
-    setIsVisible(false);
-    setTimeout(() => {
-      dispatch({ type: "CLEAR_TOAST", payload: { notificationState: false, notificationText: "", icon: "", iconClassName: "", backgroundColor: "" } });
-    }, 200); // Delay dispatch to allow transition
-  };
+  if (toast?.notificationState === true) {
+    setIsVisible(true);
 
-  
+    const hideTimer = setTimeout(() => {
+      setIsVisible(false);
+      const clearTimer = setTimeout(() => {
+        dispatch({
+          type: "CLEAR_TOAST",
+          payload: {
+            notificationState: false,
+            notificationText: "",
+            icon: "",
+            iconClassName: "",
+            backgroundColor: "",
+            timer: 3000,
+          },
+        });
+      }, 500);
+
+      return () => clearTimeout(clearTimer);
+    }, toast.timer || 3000);
+
+    return () => clearTimeout(hideTimer);
+  }
+}, [state?.isToastState?.notificationState]);
+
+const handleClose = () => {
+  setIsVisible(false);
+  dispatch({
+    type: "CLEAR_TOAST",
+    payload: {
+      notificationState: false,
+      notificationText: "",
+      icon: "",
+      iconClassName: "",
+      backgroundColor: "",
+      timer: 3000,
+    },
+  });
+};
+
+console.log("Toast visibility check", {
+  notificationState: state?.isToastState?.notificationState,
+  isVisible,
+});
+
+const toast = state?.isToastState;
+if (!toast?.notificationState && !isVisible) return null;
+
+
 
   return (
     <div
@@ -34,12 +67,12 @@ export function ToastComponent() {
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div
-        className="popUpDiv mt-20 flex items-center relative h-full overflow-hidden w-full max-w-md mx-auto"
-      >
+      <div className="popUpDiv mt-20 flex items-center relative h-full overflow-hidden w-full max-w-md mx-auto">
         <div
           className="w-16 h-16 flex items-center justify-center mobileG"
-          style={{ backgroundColor: state?.isToastState?.backgroundColor || "green" }}
+          style={{
+            backgroundColor: state?.isToastState?.backgroundColor || "green",
+          }}
         >
           <Icon
             icon={state?.isToastState?.icon || "ri-information-fill"}
@@ -47,7 +80,7 @@ export function ToastComponent() {
           />
         </div>
         <p className="popUpText font-root font-medium font-gray-800 ml-3">
-          {state?.isToastState?.notificationText ? state?.isToastState?.notificationText : "Item added"}
+          {state?.isToastState?.notificationText || "Item added"}
         </p>
         <Icon
           icon="ri-close-fill"

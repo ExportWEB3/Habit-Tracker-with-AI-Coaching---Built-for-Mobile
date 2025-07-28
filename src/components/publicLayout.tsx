@@ -10,7 +10,9 @@ export function PublicLayout({ children }: layoutAttributes) {
   return (
     <div className="w-full h-screen flex flex-col">
       {state?.isLoading && <SpinnerComponent />}
-      {state?.isToastState?.notificationText && <ToastComponent />}
+{state?.isToastState?.notificationState && state?.isToastState?.notificationText && (
+  <ToastComponent />
+)}
       {children}
     </div>
   );

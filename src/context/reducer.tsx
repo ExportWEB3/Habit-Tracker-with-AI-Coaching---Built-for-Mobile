@@ -1,4 +1,4 @@
-import type { actionAttributes, initialStateAttributes, isNotificationPopAttributes, userAttributes } from "../utilities/typedec";
+import { actionAttributes, initialStateAttributes, isNotificationPopAttributes, userAttributes } from "../utilities/typedec";
 
   
   const Reducer = (state: initialStateAttributes, action: actionAttributes) => {

@@ -22,10 +22,9 @@ export interface productsAttrubutes {
 }
 
 export interface userAttributes {
-  fullName: string;
+  userName: string;
   password: string;
   email: string;
-  confirmPassword: string;
 }
 
 export type userRolesAttributes = "admin_user" | "customer_user";
@@ -178,14 +177,13 @@ export type registerationDataAttributes = {
   name: registerationNameAttributes
 }
 
-export type registerationNameAttributes =  "email" | "password" | "confirmPassword" | "fullName";
+export type registerationNameAttributes =  "email" | "password" | "userName";
 
 
 export type registeruserAttributes =
   | "Password"
   | "Email"
-  | "Confirm Password"
-  | "Full Name";
+  | "Username";
 
 export interface CustomButtonAttributes {
   btnText: string;
@@ -214,12 +212,35 @@ export interface clientResponseAttributes {
   payload?: unknown;
   status?: errorStatusCodes;
 }
+export type BackendErrorResponse = {
+  message?: string;
+  status?: number;
+};
 
 export interface errorResponse {
+  error: boolean;
   status: number;
-  text: string;
+  message: string;
   payload?: unknown;
 }
+
+// ✅ Backend expected success response
+export interface SuccessResponse {
+  status?: number;
+  text: string;
+  payload?: any;
+}
+
+// ✅ Backend expected error shape
+export interface ErrorResponse {
+  error: true;
+  message: string;
+  status?: number;
+}
+
+
+// Union type
+export type RegisterResponse = SuccessResponse | errorResponse;
 
 
 export type errorStatusCodes = 500 | 501 | 401 | 402 | 404 | 200 | number;

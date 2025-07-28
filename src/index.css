@@ -159,6 +159,12 @@ html, body {
   }
 }
 
+@media screen and (min-width:300px) and (max-width:768px) {
+  .spinnerRes{
+    margin-left: -430px;
+  }
+}
+
 .animate-fade-in-out {
   animation: fade-in-out 3s ease-in-out forwards;
 }

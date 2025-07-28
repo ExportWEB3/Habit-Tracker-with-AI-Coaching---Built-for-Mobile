@@ -10,83 +10,59 @@ export const useHttpFetcher = () => {
   const { notify } = useNotificationHook();
   const axiosPrivate = useAxiosPrivate();
 
-  const fetchIt = async (params: globalHTTPReqFuncAttributes) => {
-    const {
-      apiEndPoint,
-      httpMethod,
-      reqData,
-      isSuccessNotification,
-      timerDuration,
-      contypeType,
-      responseType,
-    } = params;
+const fetchIt = async (params: globalHTTPReqFuncAttributes): Promise<errorResponse> => {
+  const {
+    apiEndPoint,
+    httpMethod,
+    reqData,
+    isSuccessNotification,
+    timerDuration,
+    contypeType,
+    responseType,
+  } = params;
 
-    dispatch({type: 'ISLOADING_START'})
-    try {
-      const res = await axiosPrivate({
-        method: httpMethod,
-        url: `/${apiEndPoint}`,
-        data: reqData,
-        withCredentials: true,
-        responseType: responseType,
-        headers: {
-          "Content-Type": contypeType ? contypeType : "application/json",
-          authorization: `Bearer ${state?.accessToken}`,
-        },
+  dispatch({ type: 'ISLOADING_START' });
+
+  try {
+    const res = await axiosPrivate({
+      method: httpMethod,
+      url: `/${apiEndPoint}`,
+      data: reqData,
+      withCredentials: true,
+      responseType: responseType,
+      headers: {
+        "Content-Type": contypeType ?? "application/json",
+        authorization: `Bearer ${state?.accessToken}`,
+      },
+    });
+
+    // ✅ Show success toast if enabled
+    if (isSuccessNotification?.notificationState && httpMethod !== "get") {
+      notify({
+        notificationText: isSuccessNotification?.notificationText || "Success",
+        isURL: isSuccessNotification?.isURL || false,
+        URL: isSuccessNotification?.URL || "",
+        isTimer: isSuccessNotification?.isTimer ?? true,
+        timer: timerDuration ?? "3000",
+        bgColour: isSuccessNotification?.bgColour,
+        isNavigation: isSuccessNotification?.isNavigation ?? true,
+        isRevalidate: isSuccessNotification?.isRevalidate,
+        isRevaliddateURL: isSuccessNotification?.isRevaliddateURL,
       });
-
-      if (isSuccessNotification?.notificationState && httpMethod !== "get") {
-        notify({
-          notificationText:
-            isSuccessNotification?.notificationText || "Success",
-          isURL: isSuccessNotification?.isURL || false,
-          URL: isSuccessNotification?.URL || "",
-          isTimer: isSuccessNotification?.isTimer || true,
-          timer: timerDuration ? timerDuration : "3000",
-          bgColour: isSuccessNotification?.bgColour,
-          isNavigation: isSuccessNotification?.isNavigation || true,
-          isRevalidate: isSuccessNotification?.isRevalidate || false,
-          isRevaliddateURL: isSuccessNotification?.isRevaliddateURL,
-        });
-      }
-      dispatch({type: 'ISLOADING_END'})
-      return res?.data as errorResponse;
-    } catch (error) {
-            dispatch({type: 'ISLOADING_END'})
-      if (error instanceof AxiosError) {
-        if (httpMethod !== "get") {
-           throw notify({
-            notificationText:
-              typeof error?.response?.data?.message === "string"
-                ? error?.response?.data?.message
-                : "Something went wrong, refresh browser or contact support",
-            isURL: false,
-            URL: ``,
-            isTimer: false,
-            isNavigation: false,
-            timer: timerDuration ? timerDuration : "3000",
-            isRevalidate: isSuccessNotification?.isRevalidate,
-            isRevaliddateURL: isSuccessNotification?.isRevaliddateURL,
-          });
-        } else return;
-      } else if (httpMethod !== "get") {
-       throw notify({
-          notificationText: "something went wrong",
-          isURL: false,
-          URL: ``,
-          isTimer: false,
-          isNavigation: false,
-          timer: timerDuration ? timerDuration : "3000",
-          isRevalidate: isSuccessNotification?.isRevalidate,
-          isRevaliddateURL: isSuccessNotification?.isRevaliddateURL,
-        });
-      } else throw error;
     }
-  };
 
-  return {
-    fetchIt,
-  };
+    dispatch({ type: "ISLOADING_END" });
+    return res.data as errorResponse;
+
+  } catch (error: any) {
+    dispatch({ type: "ISLOADING_END" });
+
+    // ✅ Just rethrow — toast will be handled by the caller
+    throw error;
+  }
+};
+
+return {fetchIt}
 };
 
 export const useSWRHook = (props: {

@@ -1,0 +1,29 @@
+@media screen and (max-width: 768px) {
+    .resBtn {
+        margin-top: 20px;
+    }
+    .otpImgRes{
+        display: none;
+    }
+    .resenRes{
+        margin-top: 35px;
+    }
+    .imagePhoneRes{
+        display: block;
+        display: flex;
+        align-items: center;  
+        justify-content: center;
+        margin-top: 100px;
+    }
+    .imgPhoneRes{
+        width: 200px;
+    }
+    .imgPhoneResDivMain{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .mainOtpRes{
+        margin-top: 250px;
+    }
+}
