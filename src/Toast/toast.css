@@ -1,6 +1,7 @@
 .pop {
     width: 100%;
     height: auto;
+    padding: 0px 10px;
   }
   
   .popUpDiv {
@@ -16,8 +17,6 @@
   
 @media (max-width: 1000px) {
     .popUpDiv {
-      max-width: 95vw !important;
-      min-width: 0 !important;
       height: auto !important;
       padding: 0 8px !important;
       display: flex !important;
@@ -26,6 +25,8 @@
       gap: 8px !important;
       margin-top: 20px !important;
       margin-left: 20px !important;
+      width: 100%;
+
     }
     .toastIcon {
       font-size: 30px !important;

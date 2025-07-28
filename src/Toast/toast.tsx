@@ -30,7 +30,7 @@ useEffect(() => {
       }, 500);
 
       return () => clearTimeout(clearTimer);
-    }, toast.timer || 3000);
+}, Number(state?.isToastState?.timer) || 3000);
 
     return () => clearTimeout(hideTimer);
   }
@@ -63,7 +63,7 @@ if (!toast?.notificationState && !isVisible) return null;
 
   return (
     <div
-      className={`pop zIndex10 flex justify-center h-screen fixed transition-transform duration-500 ${
+      className={`pop zIndex10 flex justify-center h-full fixed transition-transform duration-500 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >

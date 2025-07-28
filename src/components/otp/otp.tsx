@@ -120,9 +120,22 @@ localStorage.removeItem("signupUserId");
         navigate("/login");
       }, 2000);
     }, 3500);
-  } catch (error) {
-return
-  }
+  } catch (error: any) {
+  const message =
+    error?.response?.data?.message ||
+    error?.message ||
+    "OTP Verification failed. Please try again.";
+
+  dispatch({
+    type: "SET_TOAST",
+    payload: {
+      notificationState: true,
+      notificationText: message,
+      icon: "ri-error-warning-fill",
+      backgroundColor: "red",
+    },
+  });
+}
 };
 
 
